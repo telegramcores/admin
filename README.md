@@ -1,0 +1,2 @@
+# admin
+Настройка Astra Linux
