@@ -145,13 +145,12 @@ install_DrWeb(){
 #echo "deb http://repo.drweb.com/drweb/debian 11.1 non-free" >> /etc/apt/sources.list.d/drweb.list
 #apt-get update
 #apt-get install drweb-workstations -y
-mkdir antivir
 wget https://drweb.manturovo.local:9081/install/linux/drweb-11.1.0-av-linux-amd64.run --no-check-certificate -P antivir/
+wget https://drweb.manturovo.local:9081/install/drwcsd-certificate.pem --no-check-certificate -P antivir/
 cd antivir
 chmod +x drweb-11.1.0-av-linux-amd64.run
 ./drweb-11.1.0-av-linux-amd64.run -- --non-interactive
 cd ..
-rm -rf antivir
 operation_success
 full_menu
 }
