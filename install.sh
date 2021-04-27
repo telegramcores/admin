@@ -34,8 +34,8 @@ systemctl daemon-reload
 systemctl enable x11vnc.service
 systemctl start x11vnc.service
 
-#operation_success
-#full_menu
+operation_success
+full_menu
 else
      full_menu
 fi
@@ -69,7 +69,8 @@ then
     /lib/systemd/systemd-sysv-install enable ntp 
 fi    
 systemctl start ntp
-#operation_success
+operation_success
+full_menu
 }
 
 install_CryptoPro(){
@@ -119,6 +120,8 @@ cd Astra-1.6-amd64
 dpkg -i *.deb
 cd ..
 rm -rf Astra-1.6-amd64
+operation_success
+full_menu
 }
 
 install_Gosuslugi(){
@@ -132,6 +135,8 @@ dpkg -i IFCPlugin-x86_64.deb
 wget -c https://www.cryptopro.ru/sites/default/files/public/faq/ifcx64.cfg
 rm /etc/ifc.cfg && cp ifcx64.cfg /etc/ifc.cfg
 /opt/cprocsp/bin/amd64/csptestf -absorb -certs -autoprov
+operation_success
+full_menu
 }
 
 install_DrWeb(){
@@ -140,7 +145,8 @@ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8C42FC58D87527
 echo "deb http://repo.drweb.com/drweb/debian 11.1 non-free" >> /etc/apt/sources.list.d/drweb.list
 apt-get update
 apt-get install drweb-workstations -y
-
+operation_success
+full_menu
 }
 
 
@@ -157,7 +163,7 @@ apt install screen htop smartmontools ntp nfs-common rsync util-linux printer-dr
 # установка дополнительных пакетов для КриптоПроCSP
 apt install libccid pcscd libgost-astra -y
 restart_service
-#operation_success
+operation_success
 full_menu
 }
 
