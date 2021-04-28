@@ -10,7 +10,7 @@ X11VNC_install(){
 wget -c http://security.debian.org/debian-security/pool/updates/main/x/x11vnc/x11vnc_0.9.13-2+deb9u2_amd64.deb 
 wget -c http://security.debian.org/debian-security/pool/updates/main/x/x11vnc/x11vnc-data_0.9.13-2+deb9u2_all.deb
 apt install ./x11vnc*.deb -y && dpkg -i ./x11vnc*.deb
-PASSWORD=$(whiptail --title  "Test Password Box" --passwordbox  "Введите пароль X11VNC и выберите ОК для продолжения" 10 60 3>&1 1>&2 2>&3)
+PASSWORD=$(whiptail --title  "Пароль для X11VNC" --passwordbox  "Введите пароль X11VNC и выберите ОК для продолжения" 10 60 3>&1 1>&2 2>&3)
  
 exitstatus=$?
 if [ $exitstatus = 0 ];  then
@@ -189,6 +189,13 @@ operation_success
 full_menu
 }
 
+install15(){
+installing_the_required_packages
+remove_unnecessary_packages
+exact_time
+install_DrWeb
+X11VNC_install
+}   
 
 full_menu(){
 OPTION=$(whiptail --title  "Настройка клиента Astra Linux CE" --menu  "Выберите пункт:" "${HEIGHT}" "${WIDTH}" 8 \
@@ -196,10 +203,10 @@ OPTION=$(whiptail --title  "Настройка клиента Astra Linux CE" --
 "2" "Удаление нетребуемых пакетов\Обновление системы" \
 "3" "Настройка точного времени" \
 "4" "Настройка сервиса X11VNC" \
-"5" "Установка и\или обновление КриптоПроCSP+Cades+токены " \
-"6" "Установка и\или обновление плагина Госуслуги" \
-"7" "Установка Dr.Web" \
-"8" "..."  3>&1 1>&2 2>&3)
+"5" "Установка антивируса Dr.Web" \
+"6" "Автоматическая установка пунктов 1-5" \
+"7" "Установка и\или обновление КриптоПроCSP+Cades+токены " \
+"8" "Установка и\или обновление плагина Госуслуги" 3>&1 1>&2 2>&3)
  
 exitstatus=$?
 if [ $exitstatus = 0 ];  then
@@ -213,21 +220,31 @@ case $OPTION in
    "2") remove_unnecessary_packages;;
    "3") exact_time;;
    "4") X11VNC_install;;
-   "5") install_CryptoPro;;
-   "6") install_Gosuslugi;;
-   "7") install_DrWeb
-   
+   "5") install_DrWeb;;
+   "6") install15;;
+   "7") install_CryptoPro;;
+   "8") install_Gosuslugi;;
 esac    
 
-#clear
+clear
 }
 
 
 main_menu() {
     whiptail --title "Настройка клиента Astra Linux CE" \
         --yesno "Быстрая настройка нескольких пунктов Astra Linux
+        
+Этот скрипт позволяет: 
+* выполнить обновление системы
+* добавить/удалить необходимые пакеты
+* установить сервис точного времени
+* удаленный доступ к АРМ X11VNC
+* установить и/или обновить КриптоПроCSP
+* обновление плагинов для браузера
+* установка антивируса DrWeb
 
-Этот скрипт позволяет настроить обновление системы, время, удаленный доступ X11VNC, установить или обновить КриптоПроCSP, обновление плагинов для браузеров. Нажмите Next для вызова меню или Exit, если хотите выйти из скрипта  " \
+
+Нажмите Next для вызова меню или Exit, если хотите выйти из скрипта  " \
         --yes-button "Next" --no-button "Exit" \
         "${HEIGHT}" "${WIDTH}" 
     if [ "$?" -ne "${SUCCESS}" ] ; then
