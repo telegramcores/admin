@@ -168,6 +168,12 @@ system_update
 apt install screen htop smartmontools ntp nfs-common rsync util-linux printer-driver-gutenprint printer-driver-splix printer-driver-cups-pdf chromium xrdp simple-scan -y
 # установка дополнительных пакетов для КриптоПроCSP
 apt install libccid pcscd libgost-astra -y
+#драйвера для принтера и сканера Samsung
+wget -c https://whp-hou4.cold.extweb.hp.com/pub/softlib/software13/printers/SS/SL-M4580FX/uld_V1.00.39_01.17.tar.gz
+tar -xzf uld_V1.00.39_01.17.tar.gz
+cd uld 
+./install.sh
+cd ..
 restart_service
 operation_success
 full_menu
