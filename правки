@@ -1,0 +1,6 @@
+Поправить автоматическую установку
+
+Для SSD
+cp /usr/share/doc/util-linux/examples/fstrim.service /etc/systemd/system && cp /usr/share/doc/util-linux/examples/fstrim.timer /etc/systemd/system && systemctl enable fstrim.timer
+/etc/lvm/lvm.conf
+issue_discards 1
