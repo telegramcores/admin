@@ -33,11 +33,6 @@ X-service
 systemctl daemon-reload
 systemctl enable x11vnc.service
 systemctl start x11vnc.service
-
-operation_success
-full_menu
-else
-     full_menu
 fi
 
 }
@@ -48,6 +43,7 @@ TERM=ansi whiptail --backtitle "" --title "Успех!" --infobox "Операц�
 sleep 2
 clear
 }
+
 
 exact_time(){
 systemctl stop ntp
@@ -69,8 +65,6 @@ then
     /lib/systemd/systemd-sysv-install enable ntp 
 fi    
 systemctl start ntp
-operation_success
-full_menu
 }
 
 install_CryptoPro(){
@@ -120,8 +114,6 @@ cd Astra-1.6-amd64
 dpkg -i *.deb
 cd ..
 rm -rf Astra-1.6-amd64
-operation_success
-full_menu
 }
 
 install_Gosuslugi(){
@@ -135,8 +127,7 @@ dpkg -i IFCPlugin-x86_64.deb
 wget -c https://www.cryptopro.ru/sites/default/files/public/faq/ifcx64.cfg
 rm /etc/ifc.cfg && cp ifcx64.cfg /etc/ifc.cfg
 /opt/cprocsp/bin/amd64/csptestf -absorb -certs -autoprov
-operation_success
-full_menu
+
 }
 
 install_DrWeb(){
@@ -151,8 +142,7 @@ cd antivir
 chmod +x drweb-11.1.0-av-linux-amd64.run
 ./drweb-11.1.0-av-linux-amd64.run -- --non-interactive
 cd ..
-operation_success
-full_menu
+
 }
 
 
@@ -175,8 +165,14 @@ cd uld
 ./install.sh
 cd ..
 restart_service
-operation_success
-full_menu
+#Включить TRIM, если в системе установлен SSD
+ssd=`cat /sys/block/sda/queue/rotational`
+if [$ssd=0]; then
+    cp /usr/share/doc/util-linux/examples/fstrim.service /etc/systemd/system 
+    cp /usr/share/doc/util-linux/examples/fstrim.timer /etc/systemd/system 
+    systemctl enable fstrim.timer
+    sed -i 's/issue_discards = 0/issue_discards = 1/' /etc/lvm/lvm.conf
+fi
 }
 
 restart_service(){
@@ -191,8 +187,7 @@ apt remove qbittorrent blender jag -y
 # автоочистка
 apt autoremove -y
 system_update
-operation_success
-full_menu
+
 }
 
 install15(){
@@ -222,14 +217,14 @@ else
 fi
 
 case $OPTION in
-   "1") installing_the_required_packages;;
-   "2") remove_unnecessary_packages;;
-   "3") exact_time;;
-   "4") X11VNC_install;;
-   "5") install_DrWeb;;
-   "6") install15;;
-   "7") install_CryptoPro;;
-   "8") install_Gosuslugi;;
+   "1") installing_the_required_packages;operation_success;full_menu;;
+   "2") remove_unnecessary_packages;operation_success;full_menu;;
+   "3") exact_time;operation_success;full_menu;;
+   "4") X11VNC_install;operation_success;full_menu;;
+   "5") install_DrWeb;operation_success;full_menu;;
+   "6") install15;operation_success;full_menu;;
+   "7") install_CryptoPro;operation_success;full_menu;;
+   "8") install_Gosuslugi;operation_success;full_menu;;
 esac    
 
 clear
