@@ -136,8 +136,8 @@ install_DrWeb(){
 #echo "deb http://repo.drweb.com/drweb/debian 11.1 non-free" >> /etc/apt/sources.list.d/drweb.list
 #apt-get update
 #apt-get install drweb-workstations -y
-wget https://drweb.manturovo.local:9081/install/linux/drweb-11.1.0-av-linux-amd64.run --no-check-certificate -P antivir/
-wget https://drweb.manturovo.local:9081/install/drwcsd-certificate.pem --no-check-certificate -P antivir/
+wget https://192.168.10.248:9081/install/unix/workstation/drweb-11.1.3-av-linux-amd64.run --no-check-certificate -P antivir/
+wget https://192.168.10.248:9081/install/unix/workstation/drwcsd-certificate.pem --no-check-certificate -P antivir/
 cd antivir
 chmod +x drweb-11.1.0-av-linux-amd64.run
 ./drweb-11.1.0-av-linux-amd64.run -- --non-interactive
@@ -159,7 +159,7 @@ apt install screen htop smartmontools ntp nfs-common rsync util-linux printer-dr
 # установка дополнительных пакетов для КриптоПроCSP
 apt install libccid pcscd libgost-astra -y
 #драйвера для принтера и сканера Samsung
-wget -c https://whp-hou4.cold.extweb.hp.com/pub/softlib/software13/printers/SS/SL-M4580FX/uld_V1.00.39_01.17.tar.gz
+wget -c https://archive.org/download/uld_V1.00.39_01.17.tar/uld_V1.00.39_01.17.tar.gz
 tar -xzf uld_V1.00.39_01.17.tar.gz
 cd uld 
 ./install.sh
