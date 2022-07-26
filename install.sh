@@ -114,6 +114,23 @@ cd Astra-1.6-amd64
 dpkg -i *.deb
 cd ..
 rm -rf Astra-1.6-amd64
+
+#установливаем сертификаты
+wget -qO- "https://roskazna.gov.ru/upload/iblock/f5e/Kornevoy-sertifikat-GUTS-2022.CER"|/opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+wget -qO- "https://roskazna.gov.ru/upload/iblock/1af/Kaznacheystvo-Rossii.CER"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- "https://roskazna.gov.ru/upload/iblock/7e3/guts_2012.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+wget -qO- "https://roskazna.gov.ru/upload/iblock/c8c/UTS-FK_2021.CER"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- "https://roskazna.gov.ru/upload/iblock/024/uts-fk_2020.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- "https://roskazna.gov.ru/upload/iblock/acb/fk_2012.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- "http://rostelecom.ru/cdp/guc_gost12.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- "http://rostelecom.ru/cdp/guc.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- "http://crl.roskazna.ru/crl/ucfk_2021.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- "http://crl.roskazna.ru/crl/ucfk_2020.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- "http://crl.roskazna.ru/crl/ucfk_gost12.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- "http://crl.roskazna.ru/crl/ucfk.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- "https://adm44.ru/i/u/uc_korn_sert.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+wget -qO- "https://adm44.ru/i/u/uc_korn_sert.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- "https://adm44.ru/i/cert/262BF15DDCDC3BE3ECB0.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -crl -stdin 
 }
 
 install_Gosuslugi(){
@@ -178,23 +195,6 @@ fi
 apt install audispd-plugins auditd -y
 echo '*.*@10.0.4.67:514' >> /etc/rsyslog.conf && sed -i 's/.*active.*/active\ =\ yes/g' /etc/audisp/plugins.d/syslog.conf
 systemctl restart rsyslog auditd
-
-#установка сертификатов
-wget -qO- "https://roskazna.gov.ru/upload/iblock/f5e/Kornevoy-sertifikat-GUTS-2022.CER"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
-wget -qO- "https://roskazna.gov.ru/upload/iblock/1af/Kaznacheystvo-Rossii.CER"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
-wget -qO- "https://roskazna.gov.ru/upload/iblock/7e3/guts_2012.cer"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
-wget -qO- "https://roskazna.gov.ru/upload/iblock/c8c/UTS-FK_2021.CER"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
-wget -qO- "https://roskazna.gov.ru/upload/iblock/024/uts-fk_2020.cer"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
-wget -qO- "https://roskazna.gov.ru/upload/iblock/acb/fk_2012.cer"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
-wget -qO- "http://rostelecom.ru/cdp/guc_gost12.crl"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
-wget -qO- "http://rostelecom.ru/cdp/guc.crl"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
-wget -qO- "http://crl.roskazna.ru/crl/ucfk_2021.crl"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
-wget -qO- "http://crl.roskazna.ru/crl/ucfk_2020.crl"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
-wget -qO- "http://crl.roskazna.ru/crl/ucfk_gost12.crl"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
-wget -qO- "http://crl.roskazna.ru/crl/ucfk.crl"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
-wget -qO- "https://adm44.ru/i/u/uc_korn_sert.cer"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
-wget -qO- "https://adm44.ru/i/u/uc_korn_sert.cer"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
-wget -qO- "https://adm44.ru/i/cert/262BF15DDCDC3BE3ECB0.crl"|sudo /opt/cprocsp/bin/amd64/certmgr -inst -store mca -crl -stdin 
 }
 
 restart_service(){
