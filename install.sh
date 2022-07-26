@@ -139,8 +139,8 @@ install_DrWeb(){
 wget https://192.168.10.248:9081/install/unix/workstation/drweb-11.1.3-av-linux-amd64.run --no-check-certificate -P antivir/
 wget https://192.168.10.248:9081/install/unix/workstation/drwcsd-certificate.pem --no-check-certificate -P antivir/
 cd antivir
-chmod +x drweb-11.1.0-av-linux-amd64.run
-./drweb-11.1.0-av-linux-amd64.run -- --non-interactive
+chmod +x drweb-11.1.3-av-linux-amd64.run
+./drweb-11.1.3-av-linux-amd64.run -- --non-interactive
 cd ..
 
 }
