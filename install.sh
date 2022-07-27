@@ -171,6 +171,8 @@ apt upgrade
 
 installing_the_required_packages(){
 system_update
+#библиотека SASL для Psi+
+apt install libsasl2-modules -y
 # установка пакетов, необходимых для работы
 apt install screen htop smartmontools ntp nfs-common rsync util-linux printer-driver-gutenprint printer-driver-splix printer-driver-cups-pdf chromium xrdp simple-scan -y
 # установка дополнительных пакетов для КриптоПроCSP
