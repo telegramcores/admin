@@ -194,9 +194,11 @@ if [$ssd=0]; then
 fi
 
 #установка audit
+systemctl is-active --quiet auditd || {
 apt install audispd-plugins auditd -y
 echo '*.*@10.0.4.67:514' >> /etc/rsyslog.conf && sed -i 's/.*active.*/active\ =\ yes/g' /etc/audisp/plugins.d/syslog.conf
 systemctl restart rsyslog auditd
+}
 }
 
 restart_service(){
