@@ -133,6 +133,7 @@ wget -qO- "https://adm44.ru/i/u/uc_korn_sert.cer"| /opt/cprocsp/bin/amd64/certmg
 wget -qO- "https://adm44.ru/i/cert/262BF15DDCDC3BE3ECB0.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -crl -stdin 
 # Новый сертификат https://www.gosuslugi.ru/crt
 wget -qO- "https://gu-st.ru/content/Other/doc/russian_trusted_root_ca.cer"|/opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+wget -qO- "https://gu-st.ru/content/Other/doc/russian_trusted_sub_ca.cer"|/opt/cprocsp/bin/amd64/certmgr -inst -stdin
 }
 
 install_Gosuslugi(){
