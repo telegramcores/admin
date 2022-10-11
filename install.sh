@@ -224,6 +224,11 @@ install_DrWeb
 X11VNC_install
 }   
 
+installas(){
+wget https://мойассистент.рф/%D1%81%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C/Download/617
+dpkg -i 617
+}
+
 full_menu(){
 OPTION=$(whiptail --title  "Настройка клиента Astra Linux CE" --menu  "Выберите пункт:" "${HEIGHT}" "${WIDTH}" 8 \
 "1" "Установка требуемых пакетов\Обновление системы" \
@@ -232,8 +237,9 @@ OPTION=$(whiptail --title  "Настройка клиента Astra Linux CE" --
 "4" "Настройка сервиса X11VNC" \
 "5" "Установка антивируса Dr.Web" \
 "6" "Автоматическая установка пунктов 1-5" \
-"7" "Установка и\или обновление КриптоПроCSP+Cades+токены " \
-"8" "Установка и\или обновление плагина Госуслуги" 3>&1 1>&2 2>&3)
+"7" "Установка Ассистент" \
+"8" "Установка и\или обновление КриптоПроCSP+Cades+токены " \
+"9" "Установка и\или обновление плагина Госуслуги" 3>&1 1>&2 2>&3)
  
 exitstatus=$?
 if [ $exitstatus = 0 ];  then
@@ -249,8 +255,9 @@ case $OPTION in
    "4") X11VNC_install;operation_success;full_menu;;
    "5") install_DrWeb;operation_success;full_menu;;
    "6") install15;operation_success;full_menu;;
-   "7") install_CryptoPro;operation_success;full_menu;;
-   "8") install_Gosuslugi;operation_success;full_menu;;
+   "7") installas;operation_success;full_menu;;
+   "8") install_CryptoPro;operation_success;full_menu;;
+   "9") install_Gosuslugi;operation_success;full_menu;;
 esac    
 
 clear
