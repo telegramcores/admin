@@ -64,6 +64,7 @@ if !(/lib/systemd/systemd-sysv-install is-enabled ntp)
 then
     /lib/systemd/systemd-sysv-install enable ntp 
 fi    
+systemctl enable ntp
 systemctl start ntp
 }
 
