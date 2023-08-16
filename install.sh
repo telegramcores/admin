@@ -7,8 +7,8 @@ FAILURE=1
 PACKAGES_NOT_AVAILABLE=2
 
 X11VNC_install(){
-wget -c http://security.debian.org/debian-security/pool/updates/main/x/x11vnc/x11vnc_0.9.13-2+deb9u2_amd64.deb 
-wget -c http://security.debian.org/debian-security/pool/updates/main/x/x11vnc/x11vnc-data_0.9.13-2+deb9u2_all.deb
+wget -c https://security.debian.org/debian-security/pool/updates/main/x/x11vnc/x11vnc_0.9.13-6+deb10u1_amd64.deb 
+wget -c https://security.debian.org/debian-security/pool/updates/main/x/x11vnc/x11vnc-data_0.9.13-6+deb10u1_all.deb
 apt install ./x11vnc*.deb -y && dpkg -i ./x11vnc*.deb
 PASSWORD=$(whiptail --title  "Пароль для X11VNC" --passwordbox  "Введите пароль X11VNC и выберите ОК для продолжения" 10 60 3>&1 1>&2 2>&3)
  
