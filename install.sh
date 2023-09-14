@@ -117,26 +117,26 @@ cd ..
 rm -rf Astra-1.6-amd64
 
 #установливаем сертификаты
-wget -qO- "https://roskazna.gov.ru/upload/iblock/992/Sertifikat-udostoveryayushchego-tsentra-Federalnogo-kaznacheystva-2023.CER"|/opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
-wget -qO- "https://roskazna.gov.ru/upload/iblock/f5e/Kornevoy-sertifikat-GUTS-2022.CER"|/opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
-wget -qO- "https://roskazna.gov.ru/upload/iblock/1af/Kaznacheystvo-Rossii.CER"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
-wget -qO- "https://roskazna.gov.ru/upload/iblock/7e3/guts_2012.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
-wget -qO- "https://roskazna.gov.ru/upload/iblock/c8c/UTS-FK_2021.CER"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
-wget -qO- "https://roskazna.gov.ru/upload/iblock/024/uts-fk_2020.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
-wget -qO- "https://roskazna.gov.ru/upload/iblock/acb/fk_2012.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
-wget -qO- "http://rostelecom.ru/cdp/guc_gost12.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
-wget -qO- "http://rostelecom.ru/cdp/guc.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
-wget -qO- "http://crl.roskazna.ru/crl/ucfk_2021.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
-wget -qO- "http://crl.roskazna.ru/crl/ucfk_2020.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
-wget -qO- "http://crl.roskazna.ru/crl/ucfk_gost12.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
-wget -qO- "http://crl.roskazna.ru/crl/ucfk.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
-wget -qO- "https://adm44.ru/i/u/uc_korn_sert.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
-wget -qO- "https://adm44.ru/i/u/ca_ako.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
-wget -qO- "https://adm44.ru/i/cert/262BF15DDCDC3BE3ECB0.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -crl -stdin 
-wget -qO- "https://adm44.ru/i/cert/D19AD678765F765838D4.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -crl -stdin
+wget -qO- --no-check-certificate "https://roskazna.gov.ru/upload/iblock/992/Sertifikat-udostoveryayushchego-tsentra-Federalnogo-kaznacheystva-2023.CER"|/opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+wget -qO- --no-check-certificate "https://roskazna.gov.ru/upload/iblock/f5e/Kornevoy-sertifikat-GUTS-2022.CER"|/opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+wget -qO- --no-check-certificate "https://roskazna.gov.ru/upload/iblock/1af/Kaznacheystvo-Rossii.CER"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- --no-check-certificate "https://roskazna.gov.ru/upload/iblock/7e3/guts_2012.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+wget -qO- --no-check-certificate "https://roskazna.gov.ru/upload/iblock/c8c/UTS-FK_2021.CER"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- --no-check-certificate "https://roskazna.gov.ru/upload/iblock/024/uts-fk_2020.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- --no-check-certificate "https://roskazna.gov.ru/upload/iblock/acb/fk_2012.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- --no-check-certificate "http://rostelecom.ru/cdp/guc_gost12.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- --no-check-certificate "http://rostelecom.ru/cdp/guc.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_2021.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_2020.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_gost12.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- --no-check-certificate "https://adm44.ru/i/u/uc_korn_sert.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+wget -qO- --no-check-certificate "https://adm44.ru/i/u/ca_ako.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+wget -qO- --no-check-certificate "https://adm44.ru/i/cert/262BF15DDCDC3BE3ECB0.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -crl -stdin 
+wget -qO- --no-check-certificate "https://adm44.ru/i/cert/D19AD678765F765838D4.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -crl -stdin
 # Новый сертификат https://www.gosuslugi.ru/crt
-wget -qO- "https://gu-st.ru/content/Other/doc/russian_trusted_root_ca.cer"|/opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
-wget -qO- "https://gu-st.ru/content/Other/doc/russian_trusted_sub_ca.cer"|/opt/cprocsp/bin/amd64/certmgr -inst -stdin
+wget -qO- --no-check-certificate "https://gu-st.ru/content/Other/doc/russian_trusted_root_ca.cer"|/opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+wget -qO- --no-check-certificate "https://gu-st.ru/content/Other/doc/russian_trusted_sub_ca.cer"|/opt/cprocsp/bin/amd64/certmgr -inst -stdin
 }
 
 install_Gosuslugi(){
