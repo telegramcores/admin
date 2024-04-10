@@ -132,8 +132,11 @@ wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_gost12.crl"| /
 wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
 wget -qO- --no-check-certificate "https://adm44.ru/i/u/uc_korn_sert.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
 wget -qO- --no-check-certificate "https://adm44.ru/i/u/ca_ako.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+wget -qO- --no-check-certificate "https://adm44.ru/i/u/cert-44.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
 wget -qO- --no-check-certificate "https://adm44.ru/i/cert/262BF15DDCDC3BE3ECB0.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -crl -stdin 
 wget -qO- --no-check-certificate "https://adm44.ru/i/cert/D19AD678765F765838D4.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -crl -stdin
+wget -qO- --no-check-certificate "https://adm44.ru/i/cert/revock_03_2024.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -crl -stdin
+wget -qO- --no-check-certificate "https://adm44.ru/i/cert/revock_2.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -crl -stdin
 # Новый сертификат https://www.gosuslugi.ru/crt
 wget -qO- --no-check-certificate "https://gu-st.ru/content/Other/doc/russian_trusted_root_ca.cer"|/opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
 wget -qO- --no-check-certificate "https://gu-st.ru/content/Other/doc/russian_trusted_sub_ca.cer"|/opt/cprocsp/bin/amd64/certmgr -inst -stdin
