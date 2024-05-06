@@ -88,6 +88,8 @@ apt autoremove -y
 /opt/cprocsp/sbin/amd64/cpconfig -ini '\config\parameters\Crypto-Pro GOST R 34.10-2012 KC1 CSP' -add long ControlKeyTimeValidity 0x00
 /opt/cprocsp/sbin/amd64/cpconfig -ini '\config\parameters\Crypto-Pro GOST R 34.10-2012 KC1 CSP' -add long KeyTimeValidityControlMode 0x00
 /opt/cprocsp/sbin/amd64/cpconfig -ini '\config\cades\trustedsites' -add multistring "TruestedSites" "https://zakupki.gov.ru" "https://lk.zakupki.gov.ru" "https://www.cryptopro.ru"
+/opt/cprocsp/sbin/amd64/cpconfig -ini '\config\parameters\' -add long ControlKeyTimeValidity 0x00
+/opt/cprocsp/sbin/amd64/cpconfig -ini '\config\parameters\' -add long KeyTimeValidityControlMode 0x00
 cd ..
 rm -rf linux-amd64_deb
 
