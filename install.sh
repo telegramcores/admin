@@ -128,10 +128,33 @@ wget -qO- --no-check-certificate "https://roskazna.gov.ru/upload/iblock/024/uts-
 wget -qO- --no-check-certificate "https://roskazna.gov.ru/upload/iblock/acb/fk_2012.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
 wget -qO- --no-check-certificate "http://rostelecom.ru/cdp/guc_gost12.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
 wget -qO- --no-check-certificate "http://rostelecom.ru/cdp/guc.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+
 wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_2021.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
 wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_2020.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
 wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_gost12.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
 wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_2022.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_2022_1.1.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_2023.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_2024.crl"| /opt/cprocsp/bin/amd64/certmgr -inst -crl -stdin
+
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/%D0%9A%D0%BE%D1%80%D0%BD%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%20%D0%93%D0%A3%D0%A6%202021.cer"|/opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/%D0%9A%D0%BE%D1%80%D0%BD%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%20%D0%93%D0%A3%D0%A6%202022.cer"|/opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/%D0%9A%D0%BE%D1%80%D0%BD%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%20%D0%93%D0%A3%D0%A6.crt"|/opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/%D0%9A%D0%BE%D1%80%D0%BD%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%20%D0%93%D0%A3%D0%A6%20%D0%93%D0%9E%D0%A1%D0%A2%202012.crt"|/opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
+
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/%D0%9F%D0%BE%D0%B4%D1%87%D0%B8%D0%BD%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%20%D0%A3%D0%A6%20%D0%A4%D0%9A%20%D0%BE%D1%82%2004.07.2017.crt"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/%D0%9F%D0%BE%D0%B4%D1%87%D0%B8%D0%BD%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%20%D0%A3%D0%A6%20%D0%A4%D0%9A%20%D0%93%D0%9E%D0%A1%D0%A2%202012.crt"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/%D0%9F%D0%BE%D0%B4%D1%87%D0%B8%D0%BD%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%20%D0%A3%D0%A6%20%D0%A4%D0%9A%20%D0%BE%D1%82%2005.02.2020.crt"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_2021.crt"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_2022.crt"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_2022_1.1.crt"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_2023.crt"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+wget -qO- --no-check-certificate "http://crl.roskazna.ru/crl/ucfk_2024.crt"| /opt/cprocsp/bin/amd64/certmgr -inst -store mca -stdin
+
+
+
+
 wget -qO- --no-check-certificate "https://adm44.ru/i/u/uc_korn_sert.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
 wget -qO- --no-check-certificate "https://adm44.ru/i/u/ca_ako.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
 wget -qO- --no-check-certificate "https://adm44.ru/i/u/cert-44.cer"| /opt/cprocsp/bin/amd64/certmgr -inst -store mRoot -stdin
